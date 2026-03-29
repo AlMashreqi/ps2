@@ -2,11 +2,6 @@ from ics_images import readImage, writeImage
 
 
 def rotate_clock(image):
-	"""
-	Rotate a rectangular image 90 degrees clockwise.
-	Input image is a 2-d list: image[row][col] = (R,G,B)
-	Output size becomes (old_width x old_height).
-	"""
 	height = len(image)
 	width = len(image[0])
 	out = [[(0, 0, 0) for _ in range(height)] for _ in range(width)]

@@ -26,7 +26,6 @@ def crop_and_resize(image, x, y, w, h, displayW, displayH):
 	cropped = crop_image(image, x, y, w, h)
 	out = [[(0, 0, 0) for _ in range(displayW)] for _ in range(displayH)]
 
-	# nearest-neighbor scaling
 	for out_y in range(displayH):
 		src_y = int(out_y * h / displayH)
 		if src_y >= h:
@@ -43,13 +42,11 @@ def crop_and_resize(image, x, y, w, h, displayW, displayH):
 if __name__ == "__main__":
 	image, width, height = readImage("in.png")
 
-	# Problem 2-3(a): crop
 	x, y = 20, 20
 	w, h = 120, 80
 	cropped = crop_image(image, x, y, w, h)
 	writeImage(cropped, "out_cropped.jpg")
 
-	# Problem 2-3(b): crop and stretch/squeeze
 	displayW, displayH = 240, 120
 	stretched = crop_and_resize(image, x, y, w, h, displayW, displayH)
 	writeImage(stretched, "out_cropped_resized.jpg")
